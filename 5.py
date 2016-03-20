@@ -35,7 +35,7 @@ def main():
     G=graf()
     start=int(input())
     shortest_path = deikstra(G,start)
-    print('?????????? ????:')
+    print('Введите стартовый город:')
     for vertex in G:
 	    print(vertex, shortest_path[vertex])
 	    
