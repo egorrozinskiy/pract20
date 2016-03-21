@@ -27,7 +27,7 @@ def bsf(G, P, start, fired):
 P = nx.Graph()
 G = graf()
 fired = set()
-bsf(G, P, '0', fired)
+bsf(G, P, '1', fired)
 nx.draw(P)
 plt.savefig("simple_path.png") # save as png
 plt.show() # display
