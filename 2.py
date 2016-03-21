@@ -23,7 +23,7 @@ def friends(G, P, start, called):
 P = nx.Graph()
 G = graf()
 called = []
-friends(G, P, '0', called)
+friends(G, P, '1', called)
 nx.draw(P)
 plt.savefig("simple_path.png") 
 plt.show() 
