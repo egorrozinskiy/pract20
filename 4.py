@@ -1,5 +1,4 @@
 import networkx as nx
-
 def graf():
     N = int(input())
     G = {}
@@ -13,20 +12,33 @@ def graf():
             G[b] = {a}
         else:
             G[b].add(a)
-    return G  
-    
-def bfs_fire(G,start,fired):
-    Q=[start]
+    return G
+
+def bfs_fire(G, P, start, fired):
     fired.add(start)
-    while len(Q)!=0:
-        current=Q.pop(0)
+    queue=[start]
+    while len(queue)!=0:
+        current = queue.pop(0)
         for neighbour in G[current]:
             if neighbour not in fired:
-                P.add_edge(current, neighbour)                    
+                P.add_edge(current, neighbour)
                 fired.add(neighbour)
-                Q.append(neighbour)
+                queue.append(neighbour)
+    for i in G:
+        if i not in fired:
+            bfs_fire(G, P, i, fired)
+
 P = nx.Graph()
+fired = set()
 G = graf()
-fired=set()
-bfs_fire(G,'1', fired)
+komponents = 0
+for j in G:
+    if j not in fired:
+        komponents+=1
+if komponents==1:
+    print('Граф связный')
+else:
+    print('Граф не связный')
+
+bfs_fire(G,P,'1', fired)
 print('Компоненты связности:', fired)
