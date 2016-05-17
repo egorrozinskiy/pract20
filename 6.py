@@ -30,3 +30,16 @@ start=input()
 shortest_path=dejkstra(G, start)
 for vertex in G:
     print(vertex,shortest_path[vertex])
+finish = input()                 
+shortest_path = dejkstra(G, start)
+path  = [finish]    
+current = finish
+while current != start:
+       for vertex in G[current]:
+           if current != start:
+               if shortest_path[current] - G[current][vertex] == shortest_path[vertex]:
+                   current = vertex
+                   path.append(current) 
+           else:
+               break
+print(path[::-1])
