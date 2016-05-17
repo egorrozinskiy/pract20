@@ -26,11 +26,8 @@ def dejkstra(G,start):
                 queue.append(neighbour)
     return shortest_path
 G=graph_input()
-start=input()
-shortest_path=dejkstra(G, start)
-for vertex in G:
-    print(vertex,shortest_path[vertex])
-finish = input()                 
+start=input('Введите начальную вершину:')
+finish = input('Введите конечную вершину:')                 
 shortest_path = dejkstra(G, start)
 path  = [finish]    
 current = finish
